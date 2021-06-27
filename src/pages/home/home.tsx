@@ -4,7 +4,7 @@ import './home.scss';
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="max-App-View home-page">
       <p>Home</p>
     </div>
   );

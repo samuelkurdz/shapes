@@ -23,7 +23,7 @@ const Header = (props: HeaderProps) => {
 
   return (
     <header>
-      <h1>SHAPES</h1>
+      <h2>SHAPES</h2>
       {isUserLoggedIn ? (
         <button type="button" className="logout" onClick={logout}>
           <p>Logout</p>

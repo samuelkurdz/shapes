@@ -4,8 +4,23 @@ import './login.scss';
 
 const LoginPage = () => {
   return (
-    <div>
-      <p>Login</p>
+    <div className="login-page max-App-View">
+      <form action="">
+        <div className="form-group">
+          <label htmlFor="username">
+            <p>UserName</p>
+            <input type="text" name="username" id="username" />
+          </label>
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">
+            <p>Password</p>
+            <input type="password" name="password" id="password" />
+          </label>
+        </div>
+
+        <button type="submit">Login</button>
+      </form>
     </div>
   );
 };
