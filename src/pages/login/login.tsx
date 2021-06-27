@@ -11,7 +11,7 @@ interface LoginPageProps {
 }
 
 const LoginPage = (props: LoginPageProps) => {
-  const [formData, setFormData] = useState({ username: '', password: '' });
+  const [formData, setFormData] = useState({ username: 'sambayo', password: 'password' });
   const { setUser } = props;
 
   const handleLoginFormSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -33,7 +33,13 @@ const LoginPage = (props: LoginPageProps) => {
         <div className="form-group">
           <label htmlFor="username">
             <p>UserName</p>
-            <input type="text" name="username" id="username" onChange={handleFormInputChange} />
+            <input
+              type="text"
+              name="username"
+              id="username"
+              value={formData.username}
+              onChange={handleFormInputChange}
+            />
           </label>
         </div>
         <div className="form-group">
