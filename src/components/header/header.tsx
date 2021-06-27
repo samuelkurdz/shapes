@@ -25,8 +25,8 @@ const Header = (props: HeaderProps) => {
     <header>
       <h1>SHAPES</h1>
       {isUserLoggedIn ? (
-        <button type="button" onClick={logout}>
-          <span>Logout</span>
+        <button type="button" className="logout" onClick={logout}>
+          <p>Logout</p>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path
               strokeLinecap="round"
@@ -37,8 +37,8 @@ const Header = (props: HeaderProps) => {
           </svg>
         </button>
       ) : (
-        <button type="button" onClick={setName}>
-          <span>Login</span>
+        <button type="button" className="login" onClick={setName}>
+          <p>Login</p>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path
               strokeLinecap="round"
