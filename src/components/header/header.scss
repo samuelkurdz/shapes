@@ -1,0 +1,43 @@
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	// box-shadow: -1px 2px 17px 0px rgba(0,0,0,0.16);
+
+
+	button {
+		padding:  8px  12px;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		gap: 12px;
+		background: white;
+		border: none;
+		cursor: pointer;
+		border-radius: 4px;
+		transition: all .3s;
+
+		svg {
+			width: 26px;
+			height: 26px;
+		}
+
+
+		&.logout {
+			color: red;
+
+			&:hover {
+				border: 1px solid red;
+			}
+		}
+
+
+		&.login {
+			color: blue;
+
+			&:hover {
+				border: 1px solid blue;
+			}
+		}
+	}
+}

@@ -1,21 +1,32 @@
-import { Action } from 'redux';
+import { Reducer } from 'redux';
 
-const initialState = {
-  currentUser: null,
+interface UserStateInterface {
+  currentUser?: string;
+  isLoggedIn: boolean;
+}
+
+const initialState: UserStateInterface = {
+  currentUser: undefined,
+  isLoggedIn: false,
 };
 
-function userReducer(state = initialState, action: Action) {
-  // // eslint-disable-next-line no-console
-  // console.log(action);
+const userReducer: Reducer<UserStateInterface> = (state = initialState, action) => {
   switch (action.type) {
     case 'setUser':
       return {
         ...state,
-        currentUser: action,
+        currentUser: action.payload,
+        isLoggedIn: true,
+      };
+    case 'removeUser':
+      return {
+        state,
+        currentUser: undefined,
+        isLoggedIn: false,
       };
     default:
       return state;
   }
-}
+};
 
 export default userReducer;

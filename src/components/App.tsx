@@ -1,33 +1,27 @@
-/* eslint-disable no-console */
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
-import { connect } from 'react-redux';
-import { setCurrentUser } from '../state/user/user.action';
 import './App.scss';
+import { connect } from 'react-redux';
+import HomePage from '../pages/home/home';
+import LoginPage from '../pages/login/login';
+import Header from './header/header';
 
-function App(props: any) {
-  const name = 'sam';
-  const setName = () => {
-    props.setUser('sam');
-  };
+interface IProps {
+  isUserLoggedIn: boolean;
+}
+
+function App(props: IProps) {
+  const { isUserLoggedIn } = props;
   return (
     <div className="App">
-      <header className="App-header">
-        <p>{name}</p>
-        <button type="button" onClick={setName}>
-          Click
-        </button>
-      </header>
+      <Header />
+      {isUserLoggedIn ? <HomePage /> : <LoginPage />}
     </div>
   );
 }
 
 const mapStateToProps = (state: any) => ({
-  currentUser: state.user.currentUser,
+  isUserLoggedIn: state.user.isLoggedIn,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
-  setUser: (user: string) => dispatch(setCurrentUser(user)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
