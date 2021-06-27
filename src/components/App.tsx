@@ -4,7 +4,6 @@ import './App.scss';
 
 function App() {
   const name = 'sam';
-
   return (
     <div className="App">
       <header className="App-header">
