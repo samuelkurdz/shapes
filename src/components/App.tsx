@@ -5,18 +5,15 @@ import { connect } from 'react-redux';
 import { setCurrentUser } from '../state/user/user.action';
 import './App.scss';
 
-function App(props: any) {
-  const name = 'sam';
-  const setName = () => {
-    props.setUser('sam');
-  };
+function App() {
+  // const name = 'sam';
+  // const setName = () => {
+  //   props.setUser('sam');
+  // };
   return (
     <div className="App">
       <header className="App-header">
-        <p>{name}</p>
-        <button type="button" onClick={setName}>
-          Click
-        </button>
+        <h1>SHAPES</h1>
       </header>
     </div>
   );
