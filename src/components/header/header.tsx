@@ -6,8 +6,9 @@ import './header.scss';
 
 interface HeaderProps {
   isUserLoggedIn: boolean;
-  setUser: any;
-  logoutUser: any;
+  // eslint-disable-next-line no-unused-vars
+  setUser: (name: string) => void;
+  logoutUser: () => void;
 }
 
 const Header = (props: HeaderProps) => {
