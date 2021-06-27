@@ -6,7 +6,7 @@ interface UserStateInterface {
 }
 
 const initialState: UserStateInterface = {
-  currentUser: '',
+  currentUser: undefined,
   isLoggedIn: false,
 };
 

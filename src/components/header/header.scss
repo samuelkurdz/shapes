@@ -1,0 +1,13 @@
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	border: 1px solid green;
+
+
+	svg {
+		width: 20px;
+		height: 20px;
+		color: green;
+	}
+}
