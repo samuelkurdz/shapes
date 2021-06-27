@@ -4,12 +4,14 @@ const initialState = {
   currentUser: null,
 };
 
-function userReducer(state = initialState, action: Action<any>) {
+function userReducer(state = initialState, action: Action) {
+  // // eslint-disable-next-line no-console
+  // console.log(action);
   switch (action.type) {
     case 'setUser':
       return {
         ...state,
-        currentUser: 'sam',
+        currentUser: action,
       };
     default:
       return state;
