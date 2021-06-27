@@ -45,7 +45,13 @@ const LoginPage = (props: LoginPageProps) => {
         <div className="form-group">
           <label htmlFor="password">
             <p>Password</p>
-            <input type="password" name="password" id="password" onChange={handleFormInputChange} />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              value={formData.password}
+              onChange={handleFormInputChange}
+            />
           </label>
         </div>
 
