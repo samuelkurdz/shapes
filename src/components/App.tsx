@@ -14,7 +14,7 @@ function App(props: IProps) {
   const { isUserLoggedIn } = props;
   return (
     <div className="App">
-      <Header />
+      {isUserLoggedIn ? <Header /> : null}
       {isUserLoggedIn ? <HomePage /> : <LoginPage />}
     </div>
   );
