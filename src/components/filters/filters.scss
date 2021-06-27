@@ -1,0 +1,47 @@
+.shapes-container {
+	h4 {
+		color: blue;
+		font-size: 20px;
+	}
+	div {
+		display: flex;
+		gap: 1.5rem;
+
+		p {
+			border: 1px solid black;
+			padding: 0.6rem 2rem;
+			border-radius: 20px;
+			cursor: pointer;
+		}
+	}
+}
+
+.colors-container {
+	h4 {
+		color: blue;
+		font-size: 20px;
+	}
+	div {
+		display: flex;
+		gap: 2rem;
+
+		p {
+			border: 1px solid black;
+			height: 80px;
+			width: 80px;
+			padding: auto;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+	}
+}
+
+.red { background: red; }
+.blue { background: blue; }
+.green { background: green; }
+.yellow { background: yellow; }
+.lightblue { background: lightblue; }
+.grey { background: grey; }
