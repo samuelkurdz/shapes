@@ -9,14 +9,22 @@ form {
 	width: 350px;
 	height: 600px;
 	border-radius: 4px;
-	padding: 10px 1.5rem;
+	padding: 7rem 1.5rem 1rem;
 	box-shadow:  0px 4px 10px 1px rgb(223, 221, 221);
+	position: relative;
 
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
 	gap: 1.5rem;
+	
+	.logo {
+		position: absolute;
+		top: -20px;
+		background: linear-gradient( to bottom right, #ec4899, #f43f5e);
+		color: white;
+		padding: 8px 30px;
+	}
 
 	.form-group {
 		width: 100%;
@@ -32,7 +40,7 @@ form {
 		margin: 1rem 0 0;
 		padding: 12px 0;
 		font-size: 16px;
-		background: rgb(115, 96, 199);
+		background: linear-gradient( to bottom right, #a855f7, #6366f1);
 		color: white;
 		border-radius: 4px;
 		cursor: pointer;

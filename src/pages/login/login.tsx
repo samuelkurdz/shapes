@@ -6,7 +6,7 @@ const LoginPage = () => {
   return (
     <div className="login-page max-App-View">
       <form action="">
-        {/* <h2>SHAPES</h2> */}
+        <h2 className="logo">SHAPES</h2>
         <div className="form-group">
           <label htmlFor="username">
             <p>UserName</p>
