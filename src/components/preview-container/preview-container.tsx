@@ -4,7 +4,7 @@ import './preview-container.scss';
 
 const PreviewContainer = () => {
   return (
-    <div>
+    <div className="preview-container">
       <p>All Items</p>
     </div>
   );
