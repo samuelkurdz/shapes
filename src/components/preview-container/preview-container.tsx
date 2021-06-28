@@ -2,10 +2,16 @@
 import React from 'react';
 import './preview-container.scss';
 
+import { shapes, colors } from '../../mock-data';
+
 const PreviewContainer = () => {
   return (
     <div className="preview-container">
-      <p>All Items</p>
+      <h2>All Items</h2>
+
+      <div className="items">
+        {shapes.map((shape) => colors.map((color) => <span className={`${shape} ${color}`} />))}
+      </div>
     </div>
   );
 };
