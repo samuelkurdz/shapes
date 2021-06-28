@@ -8,7 +8,7 @@
 	justify-content: space-between;
 	gap: 1.5rem;
 
-	span {
+	div {
 		height: 100px;
 		width: 100px;
 	}
@@ -27,5 +27,6 @@
 }
 
 .rectangle {
-	clip-path: polygon(0 28%, 100% 28%, 100% 86%, 0 86%);
+	// clip-path: polygon(0 28%, 100% 28%, 100% 86%, 0 86%);
+	clip-path: polygon(33% 0, 100% 0, 100% 100%, 33% 100%);
 }

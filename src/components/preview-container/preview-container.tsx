@@ -9,9 +9,9 @@ const PreviewContainer = () => {
     <div className="preview-container">
       <h2>All Items</h2>
 
-      <div className="items">
-        {shapes.map((shape) => colors.map((color) => <span className={`${shape} ${color}`} />))}
-      </div>
+      <section className="items">
+        {shapes.map((shape) => colors.map((color) => <div className={`${shape} ${color}`} />))}
+      </section>
     </div>
   );
 };
