@@ -1,5 +1,21 @@
 .home-page {
-	padding: 0 1.5rem;
-	max-width: 1000px;
+	padding: 0 1rem;
+	width: 100%;
 	margin: 0 auto;
+}
+
+@media (min-width: 576px) {
+	.home-page {
+		width: 540px;
+	}
+}
+@media (min-width: 768px) {
+	.home-page {
+		width: 720px;
+	}
+}
+@media (min-width: 992px) {
+	.home-page {
+		width: 960px;
+	}
 }
