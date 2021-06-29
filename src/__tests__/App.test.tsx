@@ -1,18 +1,17 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
 import { mount } from 'enzyme';
-import { Provider } from 'react-redux';
 import LoginPage from '../pages/login/login';
 import App from '../components/App';
-import store from '../state/store';
+import Root from '../root';
 // import HomePage from '../pages/home/home';
 // import Header from '../components/header/header';
 
 it('should render', () => {
   const wrapped = mount(
-    <Provider store={store}>
+    <Root>
       <App />
-    </Provider>,
+    </Root>,
   );
 
   expect(wrapped.find(LoginPage).length).toEqual(1);
