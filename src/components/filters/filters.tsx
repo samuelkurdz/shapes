@@ -21,7 +21,7 @@ const Filters = () => {
         <h4>Colors</h4>
         <div>
           {colors.map((color) => (
-            <span className={color} />
+            <span key={color} className={color} />
           ))}
         </div>
       </section>
