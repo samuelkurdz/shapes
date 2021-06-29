@@ -10,7 +10,13 @@ const PreviewContainer = () => {
       <h2>All Items</h2>
 
       <section className="items">
-        {shapes.map((shape) => colors.map((color) => <div className={`${shape} ${color}`} />))}
+        {shapes.map((shape) =>
+          colors.map((color) => (
+            <div>
+              <div className={`${shape} ${color} item`} />
+            </div>
+          )),
+        )}
       </section>
     </div>
   );
