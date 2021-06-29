@@ -34,8 +34,8 @@ const filterReducer: Reducer<FilterStateInterface> = (state = initialState, acti
       };
     }
     case 'toggleShape': {
-      const newShapes = state.shapes;
-      if (state.colors.includes(action.payload)) {
+      const newShapes = [...state.shapes];
+      if (state.shapes.includes(action.payload)) {
         const payloadIndex = state.shapes.indexOf(action.payload);
         newShapes.splice(payloadIndex, 1);
         return {
