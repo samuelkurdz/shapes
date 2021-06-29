@@ -4,11 +4,15 @@ import { colors, shapes } from '../../mock-data';
 interface FilterStateInterface {
   colors: string[];
   shapes: string[];
+  selectedColors: string[];
+  selectedShapes: string[];
 }
 
 const initialState: FilterStateInterface = {
   colors,
   shapes,
+  selectedColors: colors,
+  selectedShapes: shapes,
 };
 
 const filterReducer: Reducer<FilterStateInterface> = (state = initialState, action) => {
@@ -16,31 +20,33 @@ const filterReducer: Reducer<FilterStateInterface> = (state = initialState, acti
     case 'toggleColor': {
       const newColors = state.colors;
       if (state.colors.includes(action.payload)) {
-        newColors.pop();
+        const payloadIndex = state.colors.indexOf(action.payload);
+        newColors.splice(payloadIndex, 1);
         return {
           ...state,
-          colors: newColors,
+          selectedColors: newColors,
         };
       }
       newColors.push(action.payload);
       return {
         ...state,
-        colors: newColors,
+        selectedColors: newColors,
       };
     }
     case 'toggleShape': {
       const newShapes = state.shapes;
       if (state.colors.includes(action.payload)) {
-        newShapes.pop();
+        const payloadIndex = state.shapes.indexOf(action.payload);
+        newShapes.splice(payloadIndex, 1);
         return {
           ...state,
-          shapes: newShapes,
+          selectedShapes: newShapes,
         };
       }
       newShapes.push(action.payload);
       return {
         ...state,
-        shapes: newShapes,
+        selectedShapes: newShapes,
       };
     }
     default:

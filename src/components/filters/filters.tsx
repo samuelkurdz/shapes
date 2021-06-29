@@ -1,9 +1,19 @@
+/* eslint-disable no-console */
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
-import { shapes, colors } from '../../mock-data';
+import { connect } from 'react-redux';
+// import { shapes, colors } from '../../mock-data';
 import './filters.scss';
 
-const Filters = () => {
+interface FiltersProps {
+  colors: string[];
+  selectedColors: string[];
+  shapes: string[];
+  selectedShapes: string[];
+}
+
+const Filters = (props: FiltersProps) => {
+  const { colors, shapes, selectedShapes, selectedColors } = props;
   return (
     <div>
       <h2>Filters</h2>
@@ -12,7 +22,9 @@ const Filters = () => {
         <h4>Shapes</h4>
         <div>
           {shapes.map((shape) => (
-            <p>{shape}</p>
+            <p className={selectedShapes.includes(shape) ? 'active' : ''} key={shape}>
+              {shape}
+            </p>
           ))}
         </div>
       </section>
@@ -21,7 +33,7 @@ const Filters = () => {
         <h4>Colors</h4>
         <div>
           {colors.map((color) => (
-            <span key={color} className={color} />
+            <span className={`${selectedColors.includes(color) ? 'active' : ''} ${color}`} key={color} />
           ))}
         </div>
       </section>
@@ -29,4 +41,11 @@ const Filters = () => {
   );
 };
 
-export default Filters;
+const mapStateToProps = (state: any) => ({
+  colors: state.filter.colors,
+  shapes: state.filter.shapes,
+  selectedColors: state.filter.selectedColors,
+  selectedShapes: state.filter.selectedShapes,
+});
+
+export default connect(mapStateToProps)(Filters);
