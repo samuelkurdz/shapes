@@ -1,0 +1,48 @@
+.preview-container {
+	margin: 3rem 0;
+}
+
+.items {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	gap: 1rem;
+
+	div {
+		height: 150px;
+		width: 150px;
+		padding: 1.5rem;
+    box-shadow: 0px 1px 4px 0px hsl(0, 6%, 90%);
+		margin-bottom: 10px;
+
+		.item {
+			height: 100%;
+			width: 100%;
+		}
+	}
+}
+
+@media (min-width: 600px) {
+	.items {
+		div {
+			height: 180px;
+			width: 180px;
+		}
+	}
+}
+
+.triangle {
+	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.oval {
+	clip-path: ellipse(28% 40% at 50% 50%);
+}
+
+.round {
+	clip-path: ellipse(40% 40% at 50% 50%);
+}
+
+.rectangle {
+	clip-path: polygon(0 20%, 100% 20%, 100% 80%, 0 80%);
+}
