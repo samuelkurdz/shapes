@@ -15,7 +15,7 @@ const PreviewContainer = (props: FiltersProps) => {
   const title = useItemLabel(colors, shapes);
   return (
     <div className="preview-container">
-      <h2>{title} Items</h2>
+      <h2>{title} items</h2>
 
       <section className="items">
         {shapes.map((shapeObject) =>
