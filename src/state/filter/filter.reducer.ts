@@ -13,38 +13,34 @@ const initialState: FilterStateInterface = {
 
 const filterReducer: Reducer<FilterStateInterface> = (state = initialState, action) => {
   switch (action.type) {
-    // case 'toggleColor': {
-    //   const newColors = state.colors;
-    //   if (state.colors.includes(action.payload)) {
-    //     const payloadIndex = state.colors.indexOf(action.payload);
-    //     newColors.splice(payloadIndex, 1);
-    //     return {
-    //       ...state,
-    //       selectedColors: newColors,
-    //     };
-    //   }
-    //   newColors.push(action.payload);
-    //   return {
-    //     ...state,
-    //     selectedColors: newColors,
-    //   };
-    // }
-    // case 'toggleShape': {
-    //   const newShapes = [...state.shapes];
-    //   if (state.shapes.includes(action.payload)) {
-    //     const payloadIndex = state.shapes.indexOf(action.payload);
-    //     newShapes.splice(payloadIndex, 1);
-    //     return {
-    //       ...state,
-    //       selectedShapes: newShapes,
-    //     };
-    //   }
-    //   newShapes.push(action.payload);
-    //   return {
-    //     ...state,
-    //     selectedShapes: newShapes,
-    //   };
-    // }
+    case 'toggleColor': {
+      const currentColors = [...state.colors];
+      const colorCurrentState = currentColors.find((color) => color.color === action.payload);
+      if (colorCurrentState) {
+        colorCurrentState.selected = !colorCurrentState.selected;
+        return {
+          ...state,
+          colors: currentColors,
+        };
+      }
+      return {
+        ...state,
+      };
+    }
+    case 'toggleShape': {
+      const currentShapes = [...state.shapes];
+      const shapeCurrentState = currentShapes.find((shape) => shape.shape === action.payload);
+      if (shapeCurrentState) {
+        shapeCurrentState.selected = !shapeCurrentState?.selected;
+        return {
+          ...state,
+          shapes: currentShapes,
+        };
+      }
+      return {
+        ...state,
+      };
+    }
     default:
       return state;
   }
