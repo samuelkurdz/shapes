@@ -2,7 +2,7 @@
 import React from 'react';
 import './preview-container.scss';
 
-import { shapes, colors } from '../../mock-data';
+import { newColorData, newShapeData } from '../../mock-data';
 
 const PreviewContainer = () => {
   return (
@@ -10,10 +10,10 @@ const PreviewContainer = () => {
       <h2>All Items</h2>
 
       <section className="items">
-        {shapes.map((shape) =>
-          colors.map((color) => (
-            <div key={`${shape} ${color}`}>
-              <div className={`${shape} ${color} item`} />
+        {newShapeData.map((shapeObject) =>
+          newColorData.map((colorObject) => (
+            <div key={`${shapeObject.shape} ${colorObject.color}`}>
+              <div className={`${shapeObject.shape} ${colorObject.color} item`} />
             </div>
           )),
         )}

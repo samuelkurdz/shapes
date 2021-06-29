@@ -2,14 +2,13 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
 import { connect } from 'react-redux';
+import { ColorInterface, ShapeInterface } from '../../mock-data';
 import { toggleColor, toggleShape } from '../../state/filter/filter.actions';
 import './filters.scss';
 
 interface FiltersProps {
-  colors: string[];
-  selectedColors: string[];
-  shapes: string[];
-  selectedShapes: string[];
+  colors: ColorInterface[];
+  shapes: ShapeInterface[];
   // eslint-disable-next-line no-unused-vars
   toggleColorAction: (color: string) => void;
   // eslint-disable-next-line no-unused-vars
@@ -17,7 +16,7 @@ interface FiltersProps {
 }
 
 const Filters = (props: FiltersProps) => {
-  const { colors, shapes, selectedShapes, selectedColors, toggleColorAction, toggleShapeAction } = props;
+  const { colors, shapes, toggleColorAction, toggleShapeAction } = props;
 
   const colorToggle = (color: string) => {
     toggleColorAction(color);
@@ -26,7 +25,6 @@ const Filters = (props: FiltersProps) => {
   const shapeToggle = (shape: string) => {
     toggleShapeAction(shape);
     console.log(shapes);
-    console.log(selectedShapes);
   };
 
   return (
@@ -36,14 +34,14 @@ const Filters = (props: FiltersProps) => {
       <section className="shapes-container">
         <h4>Shapes</h4>
         <div>
-          {shapes.map((shape) => (
+          {shapes.map((shapeObject) => (
             <button
               type="button"
-              className={selectedShapes.includes(shape) ? 'active' : ''}
-              key={shape}
-              onClick={() => shapeToggle(shape)}
+              className={shapeObject.selected ? 'active' : ''}
+              key={shapeObject.shape}
+              onClick={() => shapeToggle(shapeObject.shape)}
             >
-              {shape}
+              {shapeObject.shape}
             </button>
           ))}
         </div>
@@ -52,15 +50,15 @@ const Filters = (props: FiltersProps) => {
       <section className="colors-container">
         <h4>Colors</h4>
         <div>
-          {colors.map((color) => (
+          {colors.map((colorObject) => (
             <span
               role="button"
               tabIndex={0}
               aria-label="color"
-              key={color}
-              className={`${selectedColors.includes(color) ? 'active' : ''} ${color}`}
-              onKeyDown={() => colorToggle(color)}
-              onClick={() => colorToggle(color)}
+              key={colorObject.color}
+              className={`${colorObject.selected ? 'active' : ''} ${colorObject.color}`}
+              onKeyDown={() => colorToggle(colorObject.color)}
+              onClick={() => colorToggle(colorObject.color)}
             />
           ))}
         </div>
@@ -72,8 +70,6 @@ const Filters = (props: FiltersProps) => {
 const mapStateToProps = (state: any) => ({
   colors: state.filter.colors,
   shapes: state.filter.shapes,
-  selectedColors: state.filter.selectedColors,
-  selectedShapes: state.filter.selectedShapes,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
