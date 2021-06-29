@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
 import { connect } from 'react-redux';
@@ -24,7 +23,6 @@ const Filters = (props: FiltersProps) => {
 
   const shapeToggle = (shape: string) => {
     toggleShapeAction(shape);
-    console.log(shapes);
   };
 
   return (

@@ -3,6 +3,7 @@ import React from 'react';
 import './preview-container.scss';
 import { connect } from 'react-redux';
 import { ColorInterface, ShapeInterface } from '../../mock-data';
+import useItemLabel from '../../utils/item-label';
 
 interface FiltersProps {
   colors: ColorInterface[];
@@ -11,9 +12,10 @@ interface FiltersProps {
 
 const PreviewContainer = (props: FiltersProps) => {
   const { colors, shapes } = props;
+  const title = useItemLabel(colors, shapes);
   return (
     <div className="preview-container">
-      <h2>All Items</h2>
+      <h2>{title} Items</h2>
 
       <section className="items">
         {shapes.map((shapeObject) =>
