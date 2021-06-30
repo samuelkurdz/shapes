@@ -15,23 +15,22 @@ const initialState: FilterStateInterface = {
 const filterReducer: Reducer<FilterStateInterface> = (state = initialState, action) => {
   switch (action.type) {
     case 'toggleColor': {
-      const numberOfPreviouslySelecteds = state.colors.filter((color) => color.selected).length;
-      if (numberOfPreviouslySelecteds === 1) {
-        const currentColors = [...state.colors];
-        currentColors.forEach((color) => {
-          // eslint-disable-next-line no-param-reassign
-          color.selected = true;
-        });
-
-        return {
-          ...state,
-          colors: currentColors,
-        };
-      }
       const currentColors = [...state.colors];
-      const colorCurrentState = currentColors.find((color) => color.color === action.payload);
-      if (colorCurrentState) {
-        colorCurrentState.selected = !colorCurrentState.selected;
+      const numberOfUnselecteds = state.colors.filter((color) => color.selected).length;
+      const selectedColorCurrentState = currentColors.find((color) => color.color === action.payload);
+
+      if (selectedColorCurrentState) {
+        if (numberOfUnselecteds === 1 && selectedColorCurrentState.selected) {
+          currentColors.forEach((color) => {
+            // eslint-disable-next-line no-param-reassign
+            color.selected = true;
+          });
+          return {
+            ...state,
+            colors: currentColors,
+          };
+        }
+        selectedColorCurrentState.selected = !selectedColorCurrentState.selected;
         return {
           ...state,
           colors: currentColors,
@@ -43,9 +42,21 @@ const filterReducer: Reducer<FilterStateInterface> = (state = initialState, acti
     }
     case 'toggleShape': {
       const currentShapes = [...state.shapes];
-      const shapeCurrentState = currentShapes.find((shape) => shape.shape === action.payload);
-      if (shapeCurrentState) {
-        shapeCurrentState.selected = !shapeCurrentState?.selected;
+      const numberOfUnselecteds = state.shapes.filter((shape) => shape.selected).length;
+      const selectedShapeCurrentState = currentShapes.find((shape) => shape.shape === action.payload);
+
+      if (selectedShapeCurrentState) {
+        if (numberOfUnselecteds === 1 && selectedShapeCurrentState.selected) {
+          currentShapes.forEach((shape) => {
+            // eslint-disable-next-line no-param-reassign
+            shape.selected = true;
+          });
+          return {
+            ...state,
+            shapes: currentShapes,
+          };
+        }
+        selectedShapeCurrentState.selected = !selectedShapeCurrentState?.selected;
         return {
           ...state,
           shapes: currentShapes,
