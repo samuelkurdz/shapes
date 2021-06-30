@@ -28,4 +28,17 @@ describe('Login Page Tests', () => {
     expect(loginWrapper.find('#username').prop('value')).toEqual('sambayo');
     expect(loginWrapper.find('#password').prop('value')).toEqual('password');
   });
+
+  // it('Login page should have username and password inputs which are responsive to changes', () => {
+  //   loginWrapper.find('#username').simulate('change', {
+  //     target: { value: '' },
+  //   });
+  //   loginWrapper.update();
+  //   loginWrapper.find('#password').simulate('change', {
+  //     target: { value: '' },
+  //   });
+  //   loginWrapper.update();
+  //   expect(loginWrapper.find('#username').prop('value')).toEqual('');
+  //   expect(loginWrapper.find('#password').prop('value')).toEqual('password');
+  // });
 });
