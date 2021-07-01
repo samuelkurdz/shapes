@@ -1,26 +1,31 @@
-// eslint-disable-next-line no-use-before-define
 import userReducer from '../state/user/user.reducer';
 
-describe('Filter Component', () => {
-  // let wrapped: ReactWrapper<React.Component<{}>>;
-
-  const initialState = {
+describe('UserReducer Tests', () => {
+  const noUserState = {
     currentUser: undefined,
     isLoggedIn: false,
   };
-  const action = {
-    type: 'setUser',
-    payload: 'sambayo',
-  };
 
-  const finalState = {
+  const loggedInState = {
     currentUser: 'sambayo',
     isLoggedIn: true,
   };
 
-  const newUserState = userReducer(initialState, action);
+  const loginAction = {
+    type: 'setUser',
+    payload: 'sambayo',
+  };
+  const logoutAction = {
+    type: 'removeUser',
+  };
 
-  it('test user reducer action', () => {
-    expect(newUserState).toEqual(finalState);
+  it('test user login reducer action', () => {
+    const newUserState = userReducer(noUserState, loginAction);
+    expect(newUserState).toEqual(loggedInState);
+  });
+
+  it('test user logout reducer action', () => {
+    const newUserState = userReducer(loggedInState, logoutAction);
+    expect(newUserState).toEqual(noUserState);
   });
 });

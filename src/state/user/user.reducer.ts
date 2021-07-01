@@ -20,7 +20,7 @@ const userReducer: Reducer<UserStateInterface> = (state = initialState, action) 
       };
     case 'removeUser':
       return {
-        state,
+        ...state,
         currentUser: undefined,
         isLoggedIn: false,
       };
