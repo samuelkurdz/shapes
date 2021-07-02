@@ -25,10 +25,6 @@ describe('Filter Component', () => {
   });
 
   afterEach(() => {
-    // intialFilterState = {
-    //   colors: newColorData,
-    //   shapes: newShapeData,
-    // };
     wrapped.unmount();
   });
 
