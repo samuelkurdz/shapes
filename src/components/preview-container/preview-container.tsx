@@ -4,6 +4,7 @@ import './preview-container.scss';
 import { connect } from 'react-redux';
 import { ColorInterface, ShapeInterface } from '../../mock-data';
 import useItemLabel from '../../utils/item-label';
+import { ApplicationState } from '../../state/root.reducer';
 
 interface FiltersProps {
   colors: ColorInterface[];
@@ -34,7 +35,7 @@ const PreviewContainer = (props: FiltersProps) => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: ApplicationState) => ({
   colors: state.filter.colors,
   shapes: state.filter.shapes,
 });

@@ -1,6 +1,6 @@
 import { Reducer } from 'redux';
 
-interface UserStateInterface {
+export interface UserStateInterface {
   currentUser?: string;
   isLoggedIn: boolean;
 }
@@ -20,7 +20,7 @@ const userReducer: Reducer<UserStateInterface> = (state = initialState, action) 
       };
     case 'removeUser':
       return {
-        state,
+        ...state,
         currentUser: undefined,
         isLoggedIn: false,
       };

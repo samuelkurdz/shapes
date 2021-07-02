@@ -1,13 +1,13 @@
-/* eslint-disable no-console */
 // eslint-disable-next-line no-use-before-define
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 import { setCurrentUser } from '../../state/user/user.action';
 import './login.scss';
 
 interface LoginPageProps {
   // eslint-disable-next-line no-unused-vars
-  setUser: (name: string) => void;
+  setUser: (name: string) => any;
 }
 
 const LoginPage = (props: LoginPageProps) => {
@@ -61,7 +61,7 @@ const LoginPage = (props: LoginPageProps) => {
   );
 };
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (dispatch: Dispatch) => ({
   setUser: (user: string) => dispatch(setCurrentUser(user)),
 });
 
