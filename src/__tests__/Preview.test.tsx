@@ -3,9 +3,13 @@ import React from 'react';
 import { ReactWrapper, mount } from 'enzyme';
 import Root from '../root';
 import PreviewContainer from '../components/preview-container/preview-container';
+import { newColorData, newShapeData } from '../mock-data';
+import filterReducer, { FilterStateInterface } from '../state/filter/filter.reducer';
+import useItemLabel from '../utils/item-label';
 
 describe('Filter Component', () => {
   let wrapped: ReactWrapper<React.Component<{}>>;
+  let intialFilterState: FilterStateInterface;
 
   beforeEach(() => {
     wrapped = mount(
@@ -13,9 +17,18 @@ describe('Filter Component', () => {
         <PreviewContainer />
       </Root>,
     );
+
+    intialFilterState = {
+      colors: newColorData,
+      shapes: newShapeData,
+    };
   });
 
   afterEach(() => {
+    // intialFilterState = {
+    //   colors: newColorData,
+    //   shapes: newShapeData,
+    // };
     wrapped.unmount();
   });
 
@@ -25,5 +38,35 @@ describe('Filter Component', () => {
 
   it('always has one or more item(s) in display', () => {
     expect(wrapped.find('.item').length).toBeGreaterThan(0);
+  });
+
+  it('header is All Items', () => {
+    const randomAction = {
+      type: 'unaccounted',
+      payload: '',
+    };
+    const newFilterState = filterReducer(intialFilterState, randomAction);
+    const headerText = useItemLabel(newFilterState.colors, newFilterState.shapes);
+    expect(headerText).toEqual('All');
+  });
+
+  it('header is Multiple items after a color has been deselected', () => {
+    const toggleColorAction = {
+      type: 'toggleColor',
+      payload: 'red',
+    };
+    const newFilterState = filterReducer(intialFilterState, toggleColorAction);
+    const headerText = useItemLabel(newFilterState.colors, newFilterState.shapes);
+    expect(headerText).toEqual('Multiple');
+  });
+
+  it('header is Multiple items after a shape has been deselected', () => {
+    const toggleColorAction = {
+      type: 'toggleShape',
+      payload: 'rectangle',
+    };
+    const newFilterState = filterReducer(intialFilterState, toggleColorAction);
+    const headerText = useItemLabel(newFilterState.colors, newFilterState.shapes);
+    expect(headerText).toEqual('Multiple');
   });
 });
