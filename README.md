@@ -1,6 +1,7 @@
 # Getting Started with Shapes and Colors
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 This project is live at [Shapes and colors](https://shapesandcolors.netlify.app/)
 
 ## Available Scripts
