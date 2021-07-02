@@ -1,6 +1,6 @@
 import { Reducer } from 'redux';
 
-interface UserStateInterface {
+export interface UserStateInterface {
   currentUser?: string;
   isLoggedIn: boolean;
 }

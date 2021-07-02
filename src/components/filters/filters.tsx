@@ -1,8 +1,10 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 import { ColorInterface, ShapeInterface } from '../../mock-data';
 import { toggleColor, toggleShape } from '../../state/filter/filter.actions';
+import { ApplicationState } from '../../state/root.reducer';
 import './filters.scss';
 
 interface FiltersProps {
@@ -65,12 +67,12 @@ const Filters = (props: FiltersProps) => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: ApplicationState) => ({
   colors: state.filter.colors,
   shapes: state.filter.shapes,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (dispatch: Dispatch) => ({
   toggleColorAction: (color: string) => dispatch(toggleColor(color)),
   toggleShapeAction: (shape: string) => dispatch(toggleShape(shape)),
 });

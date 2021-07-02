@@ -1,6 +1,11 @@
 import { combineReducers } from 'redux';
-import filterReducer from './filter/filter.reducer';
-import userReducer from './user/user.reducer';
+import filterReducer, { FilterStateInterface } from './filter/filter.reducer';
+import userReducer, { UserStateInterface } from './user/user.reducer';
+
+export interface ApplicationState {
+  user: UserStateInterface;
+  filter: FilterStateInterface;
+}
 
 const rootReducer = combineReducers({
   user: userReducer,

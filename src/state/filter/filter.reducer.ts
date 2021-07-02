@@ -2,7 +2,7 @@
 import { Reducer } from 'redux';
 import { ColorInterface, newColorData, newShapeData, ShapeInterface } from '../../mock-data';
 
-interface FilterStateInterface {
+export interface FilterStateInterface {
   colors: ColorInterface[];
   shapes: ShapeInterface[];
 }
