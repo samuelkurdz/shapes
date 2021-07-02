@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-This project is live at [Shapes and colors](https://live.com)
+This project is live at [Shapes and colors](https://shapesandcolors.netlify.app/)
 ## Available Scripts
 
 In the project directory, you can run:
